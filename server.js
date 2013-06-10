@@ -51,6 +51,13 @@ process.on('uncaughtException', function(err) {
 http.createServer(function(req, res) {
     var message, fromNumber, fromName;
 
+    if (req.method === 'GET') {
+        res.writeHead(200, "OK", {'Content-Type': 'text/plain'});
+        res.write('hello');
+        res.end();
+        return;
+    }
+
     req.on('data', function(chunk) {
         // console.log("Received body data:");
         // console.log(chunk.toString());
