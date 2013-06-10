@@ -6,6 +6,8 @@ var NODE_ENV = process.env.NODE_ENV || 'production',
     twilio = require('twilio')(config.twilio.account_sid, config.twilio.auth_token),
     team_numbers = config.team_numbers[NODE_ENV];
 
+process.title = 'rtccsms2013';
+
 function postbody2obj(str) {
     var arr = str.split('&');
     var obj = {};
