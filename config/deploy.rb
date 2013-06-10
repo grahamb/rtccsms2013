@@ -27,6 +27,7 @@ namespace :deploy do
       node.node_modules_symlink
       node.npminstall
       symlink
+      node.copyconfig
     end
   end
 
