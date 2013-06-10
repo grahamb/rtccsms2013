@@ -1,0 +1,15 @@
+{
+  "name": "rtccsms2013",
+  "description": "RTCC SMS Rebroadcaster",
+  "author": "Graham Ballantyne <hello@grahamballantyne.com>",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/grahamb/rtccsms2013"
+  },
+  "main": "server.js",
+  "private": true,
+  "dependencies": {
+    "twilio" : "1.1.x"
+  }
+}
