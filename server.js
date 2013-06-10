@@ -39,6 +39,16 @@ function rebroadcast(message) {
 
 }
 
+function pong(message) {
+    twilio.sendSms({
+        to: message.From,
+        from: config.twilio.outbound_number,
+        body: 'Pong'
+    }, function(err, responseData) {
+        if (err) { console.log('ERROR %s', err); }
+    });
+}
+
 process.on('uncaughtException', function(err) {
     console.error(err.stack);
 });
