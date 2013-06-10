@@ -1,6 +1,6 @@
 /* jshint node:true */
 
-var NODE_ENV = process.env.NODE_ENV || 'production',
+var NODE_ENV = process.env.NODE_ENV || 'development',
     http = require('http'),
     config = require('./config.json'),
     twilio = require('twilio')(config.twilio.account_sid, config.twilio.auth_token),
