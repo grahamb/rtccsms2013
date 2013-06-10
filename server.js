@@ -67,4 +67,5 @@ http.createServer(function(req, res) {
     });
 
 }).listen(2013);
+console.log('%s server running on port 2013', NODE_ENV);
 
