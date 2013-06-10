@@ -54,6 +54,11 @@ namespace :node do
     task :npminstall do
         run "cd #{latest_release} && npm install"
     end
+
+    desc "Copy config.json from shared"
+    task :copyconfig do
+        run "cp #{shared_path}/config.json #{release_path}"
+    end
 end
 
 after(:deploy, "deploy:restart")

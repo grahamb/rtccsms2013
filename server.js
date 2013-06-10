@@ -2,7 +2,7 @@
 
 var NODE_ENV = process.env.NODE_ENV || 'production',
     http = require('http'),
-    config = require('../shared/config.json'),
+    config = require('./config.json'),
     twilio = require('twilio')(config.twilio.account_sid, config.twilio.auth_token),
     team_numbers = config.team_numbers[NODE_ENV];
 
