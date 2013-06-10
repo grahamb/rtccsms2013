@@ -66,7 +66,10 @@ http.createServer(function(req, res) {
 
     req.on('data', function(chunk) {
         var message = postbody2obj(chunk.toString());
-        if (team_numbers.hasOwnProperty(message.From)) {
+        console.log(message);
+        if (message.Body.toLowerCase() === 'ping') {
+            pong(message);
+        } else if (team_numbers.hasOwnProperty(message.From)) {
             rebroadcast(message);
         }
     });
