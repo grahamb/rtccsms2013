@@ -21,7 +21,7 @@ function postbody2obj(str) {
 function rebroadcast(message) {
     var newbody = 'From ' + team_numbers[message.From] + ': ' + message.Body;
     var numbers = Object.keys(team_numbers);
-    console.log(numbers);
+
     if (NODE_ENV === 'production') {
         numbers.splice(numbers.indexOf(message.From), 1);
     }
@@ -33,11 +33,7 @@ function rebroadcast(message) {
             from: config.twilio.outbound_number,
             body: newbody
         }, function(err, responseData) {
-            if (err) { console.log(err); }
-            if (!err) { // "err" is an error received during the request, if any
-                console.log(responseData.from);
-                console.log(responseData.body);
-            }
+            if (err) { console.log('ERROR %s', err); }
         });
     });
 
@@ -59,8 +55,6 @@ http.createServer(function(req, res) {
     }
 
     req.on('data', function(chunk) {
-        // console.log("Received body data:");
-        // console.log(chunk.toString());
         var message = postbody2obj(chunk.toString());
         if (team_numbers.hasOwnProperty(message.From)) {
             rebroadcast(message);
